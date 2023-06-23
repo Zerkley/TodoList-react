@@ -21,25 +21,40 @@ const Home = () => {
   //   };
   console.log(tareas);
   return (
-    <div className="container my-5 d-flex justify-content-center">
+    <div
+      className="container my-5 d-flex justify-content-center rounded"
+      id="todobox"
+    >
       <form action="" onSubmit={handleSubmit} id="form">
-        <div>
+        <h1 className="mx-auto p-2 text-center">To Do List</h1>
+
+        <div className="my-2">
           <input
             type="text"
             onChange={(e) => {
               setToDo(e.target.value);
             }}
           />
-          <button type="submit">dale</button>
+          <button className="mx-2 btn btn-success" type="submit">
+            Add task
+          </button>
         </div>
+        <hr />
         <div>
           <ul>
             {tareas
               ? tareas.map((tarea, index) => (
-                  <li key={index}>
+                  <li key={index} className="d-flex justify-content-between">
                     {tarea}
-                    <button type="button" onClick={() => removeItem(index)}>
-                      X
+                    <button
+                      id="removeButton"
+                      type="button"
+                      onClick={() => removeItem(index)}
+                    >
+                      <i
+                        className="fa-solid fa-x"
+                        style={{ color: "#e22828" }}
+                      ></i>
                     </button>
                   </li>
                 ))
