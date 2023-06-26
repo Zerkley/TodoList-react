@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "animate.css";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
@@ -14,6 +15,12 @@ const Home = () => {
     console.log(toDo);
     // añadir ese valor a la lista
     setToDo(""); // resetear el valor
+  };
+
+  const removeItem = (index) => {
+    setTareas((oldValues) => {
+      return oldValues.filter((_, i) => i !== index);
+    });
   };
 
   //   const removeItem = () => {
@@ -44,7 +51,10 @@ const Home = () => {
           <ul>
             {tareas
               ? tareas.map((tarea, index) => (
-                  <li key={index} className="d-flex justify-content-between">
+                  <li
+                    key={index}
+                    className="animate__animated animate__bounceIn d-flex justify-content-between"
+                  >
                     {tarea}
                     <button
                       id="removeButton"
