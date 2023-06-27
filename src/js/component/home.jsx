@@ -3,11 +3,13 @@ import "animate.css";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import { name } from "file-loader";
 
 //create your first component
 const Home = () => {
   const [toDo, setToDo] = useState("");
   const [tareas, setTareas] = useState([]);
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,11 +24,6 @@ const Home = () => {
       return oldValues.filter((_, i) => i !== index);
     });
   };
-
-  //   const removeItem = () => {
-  //     setList((current) => current.filter((tarea) => fruit.index !== index));
-  //   };
-  console.log(tareas);
   return (
     <div
       className="container my-5 d-flex justify-content-center rounded"
@@ -38,6 +35,7 @@ const Home = () => {
         <div className="my-2">
           <input
             type="text"
+            placeholder="Write a task!"
             onChange={(e) => {
               setToDo(e.target.value);
             }}
